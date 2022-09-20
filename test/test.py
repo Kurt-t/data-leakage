@@ -41,5 +41,18 @@ def test_column_transform():
     y_pred = clf.predict(X_test)
     print(y_pred)
 
-test_column_transform()
+# test if fit_transform() then transform() works
+def test_fit_transform():
+    X = pd.DataFrame(data={'col1': [1, 2, 3, 4, 5]})
+    X_train = X[:3]
+    X_test = X[3:]
+    from sklearn.preprocessing import StandardScaler
+    sc = StandardScaler()
+    pipe = Pipeline([('sc', sc)])
+    X_train = pipe.fit_transform(X_train)
+    X_test = pipe.transform(X_test)
+    print(X_train)
+    print(X_test)
+
+test_fit_transform()
 print("complete")
