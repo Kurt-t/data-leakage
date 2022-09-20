@@ -54,5 +54,12 @@ def test_fit_transform():
     print(X_train)
     print(X_test)
 
-test_fit_transform()
+# test the apply(lambda x: x.mean()) in pandas
+def test_apply_lambda():
+    df = pd.DataFrame([[1,2], [2,5], [0,2]], columns=['A', 'B'])
+    print(df)
+    df['new'] = df[['A','B']].apply(lambda x:x.mean(),axis=1)
+    print(df)
+
+test_apply_lambda()
 print("complete")
