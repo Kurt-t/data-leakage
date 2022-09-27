@@ -61,5 +61,8 @@ def test_apply_lambda():
     df['new'] = df[['A','B']].apply(lambda x:x.mean(),axis=1)
     print(df)
 
+# can pipeline be fit twice?
+# can imputer be reused in another pipeline?
+
 test_apply_lambda()
 print("complete")

@@ -44,6 +44,12 @@ X_train = pipe.transform(X_train)  # output is an ndarray, not df
 X_test = pipe.transform(X_test)
 
 # delete X_train.head() since it's not a df
+# another way is to get back the column names after pipeline:
+# X_cols = X_train.columns.tolist()
+# ...pipelining
+# X_train = pd.DataFrame(X_train, columns= X_cols)
+# X_test = pd.DataFrame(X_test, columns= X_cols)
+# ref: https://stackoverflow.com/questions/70993316/get-feature-names-after-sklearn-pipeline
 
 from sklearn.linear_model import LogisticRegression
 clf = LogisticRegression(penalty='l2', solver="sag", random_state=0)
